@@ -13,7 +13,7 @@ app.get("/", (req,res) => {
 app.get("/whoami",(req,res) => {
     let userDetails = {
         ip:req.ip,
-        language:req.headers["accept-language"],
+        language:req.headers["accept-language"].split(";")[0],
         software:req.headers["user-agent"]
     }
     res.send(JSON.stringify(userDetails))
